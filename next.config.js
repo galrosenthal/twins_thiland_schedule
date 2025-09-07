@@ -7,10 +7,11 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  // GitHub Pages serves from a subdirectory, so we need to set basePath
-  // Replace 'twins_thiland_schedule' with your actual repository name
-  basePath: '/twins_thiland_schedule',
-  assetPrefix: '/twins_thiland_schedule'
+  // Only apply GitHub Pages settings in production
+  ...(process.env.NODE_ENV === 'production' && {
+    basePath: '/twins_thiland_schedule',
+    assetPrefix: '/twins_thiland_schedule'
+  })
 };
 
 module.exports = nextConfig;

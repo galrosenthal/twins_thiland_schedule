@@ -1,8 +1,20 @@
 import week from '@/data/week.json'
 import { slugFromISO, formatDateTitle } from '@/lib/time'
 import Link from 'next/link'
+import CalendarExport from '@/components/CalendarExport'
+import { Event } from '@/lib/types'
+import { Category } from '@/lib/categories'
 
 export default function HomePage() {
+  // Flatten all events from all days for full schedule export
+  const allEvents: Event[] = week.flatMap(day =>
+    day.events.map(event => ({
+      ...event,
+      category: event.category as Category,
+      dateISO: day.date
+    }))
+  )
+
   return (
     <div className='space-y-8'>
       <div>
@@ -10,6 +22,11 @@ export default function HomePage() {
         <p className='text-sm text-gray-600 dark:text-gray-400'>
           כל יום מוצג בעמוד עצמאי. לחצו כדי לפתוח את ציר השעות והפעילויות.
         </p>
+      </div>
+
+      {/* Calendar Export Section */}
+      <div className='rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white/60 dark:bg-white/5'>
+        <CalendarExport events={allEvents} title="תוכנית מסע לתאילנד - תוכנית מלאה" />
       </div>
 
       <nav className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>

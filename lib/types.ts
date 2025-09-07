@@ -8,7 +8,13 @@ export type EventItem = {
   location?: string
   description?: string
 }
+
 export type DayData = {
   date: string // ISO 8601 (YYYY-MM-DD)
   events: EventItem[]
+}
+
+// Extended event type for calendar export with date information
+export type Event = EventItem & {
+  dateISO: string // ISO 8601 date for the event
 }
