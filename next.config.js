@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: { appDir: true },
-  output: 'export',
   trailingSlash: true,
   images: {
     unoptimized: true
   },
+  output: 'export',
   // Only apply GitHub Pages settings in production
   ...(process.env.NODE_ENV === 'production' && {
     basePath: '/twins_thiland_schedule',
