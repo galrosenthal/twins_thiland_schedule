@@ -1,5 +1,6 @@
 import week from '@/data/week.json'
 import { slugFromISO, formatDateTitle } from '@/lib/time'
+import Link from 'next/link'
 
 export default function HomePage() {
   return (
@@ -15,10 +16,10 @@ export default function HomePage() {
         {week.map(day => {
           const slug = slugFromISO(day.date)
           return (
-            <a
+            <Link
               key={day.date}
               href={`/day/${slug}`}
-              className='group rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white/60 dark:bg-white/5 hover:shadow-soft transition-shadow'
+              className='group rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white/60 dark:bg-white/5 hover:shadow-soft transition-shadow block'
             >
               <div className='text-xs text-gray-500 dark:text-gray-400'>{day.date}</div>
               <div className='text-lg font-semibold'>{formatDateTitle(day.date)}</div>
@@ -28,7 +29,7 @@ export default function HomePage() {
               <div className='mt-4 text-xs text-gray-500 dark:text-gray-400'>
                 לחץ/י לצפייה בציר שעות
               </div>
-            </a>
+            </Link>
           )
         })}
       </nav>
