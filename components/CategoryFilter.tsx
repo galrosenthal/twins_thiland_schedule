@@ -49,7 +49,7 @@ export default function CategoryFilter({ all, value, onChange }: Props) {
         >
           <input
             type='checkbox'
-            className='accent-black dark:accent-white'
+            className='w-4 h-4 rounded border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 focus:ring-blue-500 dark:focus:ring-blue-400 focus:ring-2'
             checked={checked.has(c)}
             onChange={() => toggle(c)}
           />
