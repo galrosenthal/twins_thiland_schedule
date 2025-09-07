@@ -4,6 +4,13 @@ import { isoFromSlug, slugFromISO, formatDateTitle } from '@/lib/time'
 import { notFound } from 'next/navigation'
 import { Category } from '@/lib/categories'
 
+// This function generates all possible static paths at build time
+export async function generateStaticParams() {
+  return week.map((day) => ({
+    slug: slugFromISO(day.date),
+  }))
+}
+
 export default function DayPage({ params }: { params: { slug: string } }) {
   const iso = isoFromSlug(params.slug, 2025)
   const day = week.find(d => d.date === iso)

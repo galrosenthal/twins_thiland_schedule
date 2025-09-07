@@ -1,8 +1,15 @@
 # Node.js dependencies
 node_modules/
 
+# Next.js build output
+.next/
+out/
+
 # macOS
 .DS_Store
 
 # IDE
 .idea/
+
+# Environment variables
+.env*.local
