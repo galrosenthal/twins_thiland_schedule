@@ -1,6 +1,8 @@
-*/node_modules
-node_modules
+# Node.js dependencies
+node_modules/
+
+# macOS
 .DS_Store
+
+# IDE
 .idea/
-/node_modules
-/node_modules/**
